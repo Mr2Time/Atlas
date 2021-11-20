@@ -5,7 +5,9 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const app = express();
 
+// routers
 const userRouter = require("./routers/users");
+const postRouter = require("./routers/posts");
 const auth = require("./routers/auth.js");
 
 // middleware
@@ -23,8 +25,8 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use("/api/users", userRouter);
-
 app.use("/api/auth", auth);
+app.use("/api/posts", postRouter);
 
 app.listen(5000, () => {
   console.log("Done");
