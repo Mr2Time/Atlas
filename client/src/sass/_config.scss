@@ -1,0 +1,7 @@
+@mixin profileImage($width: 42px, $height: 42px) {
+  width: $width;
+  height: $width;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
