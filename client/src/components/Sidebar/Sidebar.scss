@@ -1,0 +1,60 @@
+@import "../../App.scss";
+
+.sidebar {
+  flex: $flex-3;
+  height: calc(100vh - 50px);
+  overflow-y: scroll;
+
+  &-wrapper {
+    padding: 20px;
+
+    .sidebar-list {
+      @include lists() .list-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.25rem;
+        font-size: 1.25rem;
+
+        .item-icon {
+          margin-right: 1rem;
+        }
+      }
+    }
+    .sidebar-button {
+      width: 9.375rem;
+      border: none;
+      padding: 10px;
+      border-radius: 0.313rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .sidebar-hr {
+      margin: 1.25rem 0;
+    }
+
+    .friend-list {
+      @include lists();
+
+      .friend {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        .friend-img {
+          @include profileImage();
+          margin-right: 0.8rem;
+        }
+      }
+    }
+  }
+}
+
+::-webkit-scrollbar {
+    width: 0.313rem;
+}
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background-color: grey;
+}

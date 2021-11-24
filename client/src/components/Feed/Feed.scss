@@ -1,0 +1,10 @@
+@import "../../App.scss";
+
+.feed {
+    flex: $flex-5;
+
+    &-wrapper {
+        padding: 1.25rem;
+        
+    }
+}

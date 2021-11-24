@@ -1,0 +1,77 @@
+@import "../../App.scss";
+
+.post {
+  width: 100%;
+  border-radius: 0.625rem;
+  box-shadow: 0 0 1rem -0.5rem rgba($color: #000000, $alpha: 0.68);
+  margin: 1.875rem 0;
+
+  &-wrapper {
+    padding: 0.8rem;
+
+    .post-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .top-left {
+        display: flex;
+        align-items: center;
+
+        .post-profile-image {
+          @include profileImage();
+        }
+
+        .post-username {
+          font-size: 1rem;
+          font-weight: 500;
+          margin: 0 0.8rem;
+        }
+
+        .post-date {
+          font-size: small;
+        }
+      }
+    }
+
+    .post-center {
+      margin: 0.5rem 0;
+
+      .post-image {
+        margin: 0.5rem 0;
+        width: 100%;
+        max-height: 31.25rem;
+        object-fit: contain;
+      }
+    }
+
+    .post-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .bottom-left {
+            display: flex;
+            align-items: center;
+
+            .like-icon {
+                width: 1.5rem;
+                height: 1.5rem;
+                margin-right: 0.3rem;
+                cursor: pointer;
+            }
+            .post-counter {
+                font-size: 1rem;
+            }
+        }
+
+        .bottom-right {
+            .post-comment-text {
+                font-size: 1rem;
+                cursor: pointer;
+                border-bottom: 1px dashed gray;
+            }
+        }
+    }
+  }
+}

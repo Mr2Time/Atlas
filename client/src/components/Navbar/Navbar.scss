@@ -18,11 +18,11 @@
   }
 
   .navLeft {
-    flex: 3;
+    flex: $flex-3;
   }
 }
 .navCenter {
-  flex: 5;
+  flex: $flex-5;
 
   .searchBar {
     width: 100%;
@@ -46,7 +46,7 @@
   }
 }
 .navRight {
-  flex: 4;
+  flex: $flex-4;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -62,23 +62,23 @@
     display: flex;
 
     .navIcon {
-        margin-right: 1rem;
-        cursor: pointer;
-        position: relative;
+      margin-right: 1rem;
+      cursor: pointer;
+      position: relative;
 
-        .navIconBadge {
-            width: 1rem;
-            height: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: red;
-            border-radius: 50%;
-            position: absolute;
-            top: -0.313rem;
-            right: -0.913rem;
-            font-size: 0.75rem;
-        }
+      .navIconBadge {
+        width: 1rem;
+        height: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: red;
+        border-radius: 50%;
+        position: absolute;
+        top: -0.313rem;
+        right: -0.913rem;
+        font-size: 0.75rem;
+      }
     }
   }
 

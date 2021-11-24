@@ -1,7 +1,16 @@
+$flex-3: 3;
+$flex-4: 4;
+$flex-5: 5;
+
 @mixin profileImage($width: 42px, $height: 42px) {
   width: $width;
   height: $width;
   border-radius: 50%;
   object-fit: cover;
   cursor: pointer;
+}
+@mixin lists($padding: 0, $margin: 0) {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
