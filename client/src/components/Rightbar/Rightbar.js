@@ -3,7 +3,7 @@ import "./Rightbar.scss";
 import { Users } from "../../temp_data";
 import Online from "./../Online/Online";
 import Profile from "../Pages/Profile/Profile";
-const Rightbar = () => {
+const Rightbar = ({profile}) => {
   const HomeRightbar = () => {
     return (
       <>
@@ -80,7 +80,7 @@ const Rightbar = () => {
     return (
       <div className="rightbar">
         <div className="rightbar-wrapper">
-          <ProfileRightbar />
+          {profile ? <ProfileRightbar /> : <HomeRightbar />}
         </div>
       </div>
     );
