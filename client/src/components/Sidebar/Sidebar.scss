@@ -4,6 +4,8 @@
   flex: $flex-3;
   height: calc(100vh - 50px);
   overflow-y: scroll;
+  position: sticky;
+  top: 3.125rem;
 
   &-wrapper {
     padding: 20px;

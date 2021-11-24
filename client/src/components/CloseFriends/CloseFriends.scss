@@ -1,0 +1,12 @@
+@import "../../App.scss";
+
+.friend {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  .friend-img {
+    @include profileImage();
+    margin-right: 0.8rem;
+  }
+}

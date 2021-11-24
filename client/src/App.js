@@ -1,11 +1,10 @@
 import React from "react";
 import "./App.scss";
-import Home from './Components/Pages/Home/Home';
-// import PersonIcon from '@mui/icons-material/Person';
+import Profile from './Components/Pages/Profile/Profile';
 function App() {
   return (
     <div>
-      <Home />
+      <Profile />
     </div>
   );
 }

@@ -1,5 +1,80 @@
 @import "../../App.scss";
 
 .rightbar {
-    flex: $flex-4;
+  flex: $flex-4;
+
+  &-wrapper {
+    padding: 1.2rem 1.2rem 0 0;
+
+    .birthday-container {
+      display: flex;
+      align-items: center;
+
+      .birthday-image {
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-right: 0.6rem;
+      }
+      .birthday-text {
+        font-weight: 300;
+        font-size: 1rem;
+      }
+    }
+    .rightbar-title {
+      margin-bottom: 1.25rem;
+    }
+    .rightbar-ad {
+      width: 100%;
+      border-radius: 0.625rem;
+      margin: 1.875rem 0;
+    }
+    .rightbar-friends-list {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .rightbar-title {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.625rem;
+    }
+
+    .rightbar-followings {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .rightbar-following {
+        display: flex;
+        flex-direction: column;
+        margin: 1.25;
+        cursor: pointer;
+
+        .rightbar-following-img {
+          width: 6.25rem;
+          height: 6.25rem;
+          object-fit: cover;
+          border-radius: 0.5rem;
+        }
+      }
+    }
+    
+    .rightbar-info {
+      margin-bottom: 1.875rem;
+      .info-item {
+        margin-bottom: 0.625rem;
+
+        .info-key {
+          font-weight: 500;
+          margin-right: 1rem;
+          color: rgb(78, 77, 77);
+        }
+        .info-value {
+          font-weight: 100;
+          color: rgb(114, 112, 112);
+        }
+      }
+    }
+  }
 }

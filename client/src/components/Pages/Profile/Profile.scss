@@ -1,0 +1,50 @@
+@import "../../../App.scss";
+
+.profile {
+  display: flex;
+
+  .profile-right {
+    flex: 9;
+
+    .profile-right-bottom {
+      display: flex;
+    }
+    .profile-right-top {
+      .profile-cover {
+        height: 20rem;
+        position: relative;
+
+        .profile-cover-img {
+          width: 100%;
+          height: 15.625rem;
+          object-fit: cover;
+        }
+        .profile-user-picture {
+          width: 9.375rem;
+          height: 9.375rem;
+          border-radius: 50%;
+          object-fit: cover;
+          position: absolute;
+          left: 0;
+          right: 0;
+          margin: auto;
+          top: 9.375rem;
+          border: 3px solid white;
+        }
+      }
+      .profile-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        &-name {
+            font-weight: 3rem;
+        }
+        &-desc {
+            font-weight: 300;
+      }
+    }
+  }
+}
+}

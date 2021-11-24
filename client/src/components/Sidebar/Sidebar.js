@@ -12,6 +12,8 @@ import {
   faGraduationCap,
 } from "@fortawesome/free-solid-svg-icons";
 import "./Sidebar.scss";
+import { Users } from "./../../temp_data";
+import CloseFriends from "../CloseFriends/CloseFriends";
 
 const Sidebar = () => {
   return (
@@ -55,41 +57,12 @@ const Sidebar = () => {
             <span className="list-item-text">Courses</span>
           </li>
         </ul>
-        <button className='sidebar-button'>Show more</button>
-        <hr className='sidebar-hr'/>
-        <ul className='friend-list'>
-            <li className='friend'>
-                <img className='friend-img' src="../assets/person/2.jpeg" alt="" />
-                <span className='friend-name'>Jane Doe</span>
-            </li>
-            <li className='friend'>
-                <img className='friend-img' src="../assets/person/2.jpeg" alt="" />
-                <span className='friend-name'>Jane Doe</span>
-            </li>
-            <li className='friend'>
-                <img className='friend-img' src="../assets/person/2.jpeg" alt="" />
-                <span className='friend-name'>Jane Doe</span>
-            </li>
-            <li className='friend'>
-                <img className='friend-img' src="../assets/person/2.jpeg" alt="" />
-                <span className='friend-name'>Jane Doe</span>
-            </li>
-            <li className='friend'>
-                <img className='friend-img' src="../assets/person/2.jpeg" alt="" />
-                <span className='friend-name'>Jane Doe</span>
-            </li>
-            <li className='friend'>
-                <img className='friend-img' src="../assets/person/2.jpeg" alt="" />
-                <span className='friend-name'>Jane Doe</span>
-            </li>
-            <li className='friend'>
-                <img className='friend-img' src="../assets/person/2.jpeg" alt="" />
-                <span className='friend-name'>Jane Doe</span>
-            </li>
-            <li className='friend'>
-                <img className='friend-img' src="../assets/person/2.jpeg" alt="" />
-                <span className='friend-name'>Jane Doe</span>
-            </li>
+        <button className="sidebar-button">Show more</button>
+        <hr className="sidebar-hr" />
+        <ul className="friend-list">
+          {Users.map((user) => {
+            return <CloseFriends user={user} key={user.id} />;
+          })}
         </ul>
       </div>
     </div>
