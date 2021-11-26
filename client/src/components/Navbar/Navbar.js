@@ -6,13 +6,16 @@ import {
   faCommentAlt,
   faBell,
 } from "@fortawesome/free-solid-svg-icons";
+import {Link} from 'react-router-dom'
 import "./Navbar.scss"
 
 function Navbar() {
   return (
     <div className="container">
       <div className="navLeft">
-        <span className="logo">Atlas</span>
+        <Link to='/' style={{textDecoration: 'none'}}>
+          <span className="logo">Atlas</span>
+        </Link>
       </div>
       <div className="navCenter">
         <div className="searchBar">
