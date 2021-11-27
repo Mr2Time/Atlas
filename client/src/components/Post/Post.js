@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { format } from "timeago.js";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
-import axios from 'axios'
-import {format} from 'timeago.js'
 
 import "./Post.scss";
 
@@ -13,7 +14,7 @@ const Post = ({ post }) => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`users/${post.userId}`);
+      const res = await axios.get(`/users?userId=${post.userId}`);
       setUser(res.data);
     };
     fetchUser();
@@ -30,17 +31,14 @@ const Post = ({ post }) => {
       <div className="post-wrapper">
         <div className="post-top">
           <div className="top-left">
-            <img
-              src={
-                user.profilePicture || PF+"person/default-photo.jpg"
-              }
-              alt=""
-              className="post-profile-image"
-            />
-            <span className="post-username">
-            
-              {user.username}
-            </span>
+            <Link to={`profile/${user.username}`}>
+              <img
+                src={user.profilePicture || PF + "person/default-photo.jpg"}
+                alt=""
+                className="post-profile-image"
+              />
+            </Link>
+            <span className="post-username">{user.username}</span>
             <span className="post-date">{format(user.createdAt)}</span>
           </div>
           <div className="top-right">

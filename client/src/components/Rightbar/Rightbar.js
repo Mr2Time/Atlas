@@ -3,7 +3,7 @@ import "./Rightbar.scss";
 import { Users } from "../../temp_data";
 import Online from "./../Online/Online";
 import Profile from "../Pages/Profile/Profile";
-const Rightbar = ({profile}) => {
+const Rightbar = ({user}) => {
 
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
@@ -37,15 +37,15 @@ const Rightbar = ({profile}) => {
         <div className='rightbar-info'>
           <div className='info-item'>
             <span className='info-key'>City: </span>
-            <span className='info-value'>New York</span>
+            <span className='info-value'>{user.city}</span>
           </div>
           <div className='info-item'>
             <span className='info-key'>From: </span>
-            <span className='info-value'>Madrid</span>
+            <span className='info-value'>{user.from}</span>
           </div>
           <div className='info-item'>
             <span className='info-key'>Relationship: </span>
-            <span className='info-value'>Single</span>
+            <span className='info-value'>{user.relationship === 1 ? "Single" : user.relationship === 2 ? "Married" : "-"}</span>
           </div>
         </div>
         <h4 className='rightbar-title'>
@@ -84,7 +84,7 @@ const Rightbar = ({profile}) => {
     return (
       <div className="rightbar">
         <div className="rightbar-wrapper">
-          {profile ? <ProfileRightbar /> : <HomeRightbar />}
+          {user ? <ProfileRightbar /> : <HomeRightbar />}
         </div>
       </div>
     );

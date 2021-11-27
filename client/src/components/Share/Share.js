@@ -5,11 +5,12 @@ import {faPhotoVideo, faTags, faMapMarkedAlt, faSmile} from "@fortawesome/free-s
 import "./Share.scss";
 
 const Share = () => {
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   return (
     <div className="share">
       <div className="share-wrapper">
         <div className="share-top">
-          <img src="./assets/person/2.jpeg" alt="" className='share-img' />
+          <img src={`${PF}/person/2.jpeg`}alt="" className='share-img' />
           <input
             type="text"
             className="share-input"
