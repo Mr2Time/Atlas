@@ -8,16 +8,16 @@ import "./Feed.scss";
 
 const Feed = ({ username }) => {
   const [Posts, setPosts] = useState([]);
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   useEffect(() => {
     const fetchPosts = async () => {
       const res = username
         ? await axios.get("/posts/profile/" + username)
-        : await axios.get("posts/timeline/619887970f775702d8e36270");
+        : await axios.get("posts/timeline/" + user._id);
       setPosts(res.data);
     };
     fetchPosts();
-  }, [username]);
+  }, [username, user._id]);
   return (
     <div className="feed">
       <div className="feed-wrapper">
