@@ -3,12 +3,12 @@ import AuthReducer from "./Reducer";
 
 const initialState = {
   user: {
-    _id: "61a20d67285173bc348121a6",
-    username: "Kamatz",
-    email: "Kamatz@gmail.com",
+    _id: "619887970f775702d8e36270",
+    username: "Mo",
+    email: "Mo@gmail.com",
     profilePicture: "",
     coverPicture: "",
-    followers: ["619887970f775702d8e36270"],
+    followers: ["619887ac0f775702d8e36274"],
     following: ["619887970f775702d8e36270"],
     isAdmin: false,
   },
