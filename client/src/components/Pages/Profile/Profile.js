@@ -17,7 +17,7 @@ const Profile = () => {
       setUser(res.data);
     };
     fetchUser();
-  }, []);
+  }, [username]);
   return (
     <React.Fragment>
       <Navbar />

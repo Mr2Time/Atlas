@@ -2,7 +2,6 @@ import React from "react";
 import "./Rightbar.scss";
 import { Users } from "../../temp_data";
 import Online from "./../Online/Online";
-import Profile from "../Pages/Profile/Profile";
 const Rightbar = ({user}) => {
 
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
