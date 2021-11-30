@@ -7,7 +7,7 @@ import {
   faBell,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { AuthContext } from "./../../Context/AuthContext";
+import { AuthContext } from "../../Context/AuthContext";
 import "./Navbar.scss";
 
 function Navbar() {

@@ -2,12 +2,12 @@ import React, { useContext, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AuthContext } from "../../Context/AuthContext";
 import axios from "axios";
-
 import {
   faPhotoVideo,
   faTags,
   faMapMarkedAlt,
   faSmile,
+  faTimesCircle
 } from "@fortawesome/free-solid-svg-icons";
 import "./Share.scss";
 
@@ -61,6 +61,12 @@ const Share = () => {
           />
         </div>
         <hr className="share-hr" />
+        {file && (
+          <div className='share-img-container'>
+              <img src={URL.createObjectURL(file)} className='share-img' alt="" />
+              <FontAwesomeIcon icon={faTimesCircle} className='cancel-icon' onClick={() => setFile(null)}/>
+          </div>
+        )}
         <form className="share-bottom" onSubmit={handleSubmit}>
           <div className="share-options">
             <label htmlFor="file" className="share-option">

@@ -35,7 +35,20 @@
     }
 
     .follow-button {
-      margin-top: ;
+      margin-top: 1.875rem;
+      margin-bottom: 0.625rem;
+      border: none;
+      padding: 0.6em 0.625rem;
+      color: white;
+      border-radius: 0.313rem;
+      background-color: #1872f2;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+      }
     }
 
     .rightbar-title {
@@ -63,7 +76,7 @@
         }
       }
     }
-    
+
     .rightbar-info {
       margin-bottom: 1.875rem;
       .info-item {

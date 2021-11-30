@@ -1,29 +1,50 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { Users } from "../../temp_data";
 import Online from "./../Online/Online";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPlus
-} from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import "./Rightbar.scss";
 const Rightbar = ({ user }) => {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-  const {user: currentUser} = useContext(AuthContext)
+  const { user: currentUser, dispatch } = useContext(AuthContext);
+  console.log(currentUser);
   const [friends, setFriends] = useState([]);
+  const [followed, setFollowed] = useState(
+    currentUser.following.includes(user?._id)
+  );
 
   useEffect(() => {
+    console.log("followed " + followed);
     const getFriends = async () => {
       try {
         const friendList = await axios.get("/users/friends/" + user._id);
         setFriends(friendList.data);
-      } catch (e) {
-        console.log(e);
+      } catch (err) {
+        console.log(err);
       }
     };
     getFriends();
   }, [user]);
+
+  const handleFollow = async () => {
+    try {
+      if (followed) {
+        await axios.put(`/users/${user._id}/unfollow`, {
+          userId: currentUser._id,
+        });
+        dispatch({ type: "UNFOLLOW", payload: user._id });
+      } else {
+        await axios.put(`/users/${user._id}/follow`, {
+          userId: currentUser._id,
+        });
+        dispatch({ type: "FOLLOW", payload: user._id });
+      }
+      setFollowed(!followed);
+    } catch (err) {}
+  };
 
   const HomeRightbar = () => {
     return (
@@ -37,7 +58,7 @@ const Rightbar = ({ user }) => {
         <img className="rightbar-ad" src={`${PF}/ad.png`} alt="" />
         <h4 className="rightbar-title">Online Friends</h4>
         <ul className="rightbar-friends-list">
-          {user.map((user) => {
+          {Users.map((user) => {
             return <Online key={user.id} user={user} />;
           })}
         </ul>
@@ -48,11 +69,12 @@ const Rightbar = ({ user }) => {
   const ProfileRightbar = () => {
     return (
       <>
-      {user.username !== currentUser.username && (
-        <button className='follow-button'>
-          <span><FontAwesomeIcon icon={faPlus}/></span> Follow
-        </button> 
-      )}
+        {user.username !== currentUser.username && (
+          <button className="follow-button" onClick={handleFollow}>
+            {followed ? "Unfollow" : "Follow"}
+            <FontAwesomeIcon icon={followed ? faMinus : faPlus} />
+          </button>
+        )}
         <h4 className="rightbar-title">User Information</h4>
         <div className="rightbar-info">
           <div className="info-item">
