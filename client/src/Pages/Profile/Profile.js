@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
-import Navbar from "../../Navbar/Navbar";
-import Rightbar from "../../Rightbar/Rightbar";
-import Sidebar from "../../Sidebar/Sidebar";
-import Feed from "../../Feed/Feed";
+import Navbar from "../../Components/Navbar/Navbar";
+import Rightbar from "../../Components/Rightbar/Rightbar";
+import Sidebar from "../../Components/Sidebar/Sidebar";
+import Feed from "../../Components/Feed/Feed";
 import "./Profile.scss";
 
 const Profile = () => {

@@ -16,8 +16,12 @@ const Rightbar = ({ user }) => {
     currentUser.following.includes(user?._id)
   );
 
+  // follow/unfollow doesn't get fetched properly
+  // use different a method
+
   useEffect(() => {
     console.log("followed " + followed);
+
     const getFriends = async () => {
       try {
         const friendList = await axios.get("/users/friends/" + user._id);

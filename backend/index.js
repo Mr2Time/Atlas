@@ -5,9 +5,9 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const multer = require("multer");
 const path = require("path");
-const auth = require("./routers/auth");
-const posts = require("./routers/posts");
-const users = require("./routers/users");
+const auth = require("./Routers/auth");
+const posts = require(".Rrouters/posts");
+const users = require("./Routers/users");
 const app = express();
 
 dotenv.config();

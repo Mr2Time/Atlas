@@ -1,0 +1,22 @@
+@import "../../App.scss";
+
+.conversation {
+  display: flex;
+  align-items: center;
+  padding: 0.625rem;
+  cursor: pointer;
+  margin-top: 1.2rem;
+
+  .convo-img {
+    @include profileImage();
+    margin-right: 1.25rem;
+  }
+
+  .convo-name {
+    font-weight: 500;
+  }
+
+  &:hover {
+    background-color: rgb(245, 243, 243);
+  }
+}

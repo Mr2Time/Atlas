@@ -1,6 +1,6 @@
 import React, { useRef, useContext } from "react";
-import { loginCall } from "../../../Api";
-import { AuthContext } from "./../../../Context/AuthContext";
+import { loginCall } from "../../Api";
+import { AuthContext } from "./../../Context/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import "./Login.scss";

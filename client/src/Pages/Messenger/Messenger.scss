@@ -1,0 +1,74 @@
+@import "../../App.scss";
+
+%wrappers {
+  padding: 0.625rem;
+  height: 100%;
+}
+
+.messenger {
+  height: calc(100vh - 50px);
+  display: flex;
+
+  .chat-menu {
+    flex: $flex-4;
+
+    .menu-wrapper {
+      @extend %wrappers;
+
+      .menu-input {
+        width: 90%;
+        padding: 0.625rem 0;
+        border: none;
+        border-bottom: 1px solid grey;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+  .chat-box {
+    flex: $flex-5;
+
+    .box-wrapper {
+      @extend %wrappers;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .chat-box-top {
+          height: 100%;
+          overflow-y: scroll;
+          padding-right: 0.625rem;
+      }
+
+      .chat-box-bottom {
+        margin-top: 0.31rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .chat-textarea {
+            width: 80%;
+            height: 5.625rem;
+            padding: 0.625rem;
+        }
+        .chat-submit-btn {
+            width: 4.375rem;
+            height: 2.5rem;
+            border: none;
+            border-radius: 0.313rem;
+            background-color: teal;
+            color: white;
+        }
+    }
+    }
+  }
+  .chat-online-friends {
+    flex: $flex-3;
+
+    .online-wrapper {
+      @extend %wrappers;
+    }
+  }
+}

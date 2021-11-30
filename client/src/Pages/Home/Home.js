@@ -1,8 +1,8 @@
 import React from "react";
-import Navbar from "./../../Navbar/Navbar";
-import Sidebar from "./../../Sidebar/Sidebar";
-import Feed from "./../../Feed/Feed";
-import Rightbar from "./../../Rightbar/Rightbar";
+import Navbar from "../../Components/Navbar/Navbar";
+import Sidebar from "../../Components/Sidebar/Sidebar";
+import Feed from "../../Components/Feed/Feed";
+import Rightbar from "../../Components/Rightbar/Rightbar";
 import "./Home.scss";
 
 function Home() {
