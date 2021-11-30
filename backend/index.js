@@ -6,8 +6,10 @@ const morgan = require("morgan");
 const multer = require("multer");
 const path = require("path");
 const auth = require("./Routers/auth");
-const posts = require(".Rrouters/posts");
+const posts = require("./Routers/posts");
 const users = require("./Routers/users");
+const convo = require("./Routers/Conversation");
+const message = require("./Routers/Message");
 const app = express();
 
 dotenv.config();
@@ -47,6 +49,8 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 app.use("/api/auth", auth);
 app.use("/api/users", users);
 app.use("/api/posts", posts);
+app.use("/api/conversations", convo);
+app.use("/api/messages/", message);
 
 app.listen(5000, () => {
   console.log("Backend server is running!");
