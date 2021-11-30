@@ -12,7 +12,6 @@ import "./Navbar.scss";
 
 function Navbar() {
   const user = useContext(AuthContext);
-  console.log(user)
   const PF = process.env.REACT_APP_PUBLIC_FOLDER
   return (
     <div className="container">

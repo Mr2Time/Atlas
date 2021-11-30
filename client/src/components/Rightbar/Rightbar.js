@@ -20,8 +20,6 @@ const Rightbar = ({ user }) => {
   // use different a method
 
   useEffect(() => {
-    console.log("followed " + followed);
-
     const getFriends = async () => {
       try {
         const friendList = await axios.get("/users/friends/" + user._id);
