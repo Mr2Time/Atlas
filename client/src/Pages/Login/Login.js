@@ -1,6 +1,5 @@
 import React, { useRef, useContext } from "react";
 import { loginCall } from "../../Api";
-import { tempLogin } from "../../Api";
 import { AuthContext } from "./../../Context/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
@@ -10,7 +9,7 @@ import "./Login.scss";
 const Login = () => {
   const email = useRef();
   const password = useRef();
-  const { user, isFetching, dispatch } = useContext(AuthContext);
+  const { isFetching, dispatch } = useContext(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
     loginCall(

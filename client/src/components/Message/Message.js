@@ -1,13 +1,15 @@
 import {format} from 'timeago.js'
 import "./Message.scss";
 
-const Message = ({message,own}) => {
+const Message = ({message,own, user}) => {
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
   return (
     <div className={own ? "message own" : "message"}>
       <div className="message-top">
         <img
           className="message-img"
-          src="https://t3.ftcdn.net/jpg/02/22/85/16/360_F_222851624_jfoMGbJxwRi5AWGdPgXKSABMnzCQo9RN.jpg"
+          src={own ? PF + user.profilePicture : PF+ "person/default-photo.jpg" }
           alt=""
         />
         <p className="message-text">{message.text}</p>
