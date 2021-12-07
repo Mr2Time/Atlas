@@ -9,7 +9,7 @@ const Message = ({message,own, user}) => {
       <div className="message-top">
         <img
           className="message-img"
-          src={own ? PF + user.profilePicture : PF+ "person/default-photo.jpg" }
+          src={own && user.profilePicture ? PF + user.profilePicture : PF+ "person/default-photo.jpg" }
           alt=""
         />
         <p className="message-text">{message.text}</p>
