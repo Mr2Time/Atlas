@@ -7,7 +7,7 @@ import {
   faTags,
   faMapMarkedAlt,
   faSmile,
-  faTimesCircle
+  faTimesCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import "./Share.scss";
 
@@ -29,7 +29,6 @@ const Share = () => {
       data.append("name", fileName);
       data.append("file", file);
       newPost.image = fileName;
-      console.log(newPost);
       try {
         await axios.post("/upload", data);
       } catch (err) {}
@@ -62,9 +61,13 @@ const Share = () => {
         </div>
         <hr className="share-hr" />
         {file && (
-          <div className='share-img-container'>
-              <img src={URL.createObjectURL(file)} className='share-img' alt="" />
-              <FontAwesomeIcon icon={faTimesCircle} className='cancel-icon' onClick={() => setFile(null)}/>
+          <div className="share-img-container">
+            <img src={URL.createObjectURL(file)} className="share-img" alt="" />
+            <FontAwesomeIcon
+              icon={faTimesCircle}
+              className="cancel-icon"
+              onClick={() => setFile(null)}
+            />
           </div>
         )}
         <form className="share-bottom" onSubmit={handleSubmit}>
@@ -76,6 +79,7 @@ const Share = () => {
                 className="share-icon"
               />
               <span className="share-option-text">Photo or Video</span>
+
               <input
                 style={{ display: "none" }}
                 type="file"
@@ -84,30 +88,36 @@ const Share = () => {
                 onChange={(e) => setFile(e.target.files[0])}
               />
             </label>
-            <div className="share-option">
-              <FontAwesomeIcon
-                icon={faTags}
-                color="blue"
-                className="share-icon"
-              />
-              <span className="share-option-text">Tag</span>
-            </div>
-            <div className="share-option">
-              <FontAwesomeIcon
-                icon={faMapMarkedAlt}
-                color="green"
-                className="share-icon"
-              />
-              <span className="share-option-text">Location</span>
-            </div>
-            <div className="share-option">
-              <FontAwesomeIcon
-                icon={faSmile}
-                color="goldenrod"
-                className="share-icon"
-              />
-              <span className="share-option-text">Feelings</span>
-            </div>
+            <span
+              className="share-options"
+              style={{ border: "1px solid red", padding: "4px" }}
+            >
+              <div className="share-option">
+                <FontAwesomeIcon
+                  icon={faTags}
+                  color="blue"
+                  className="share-icon"
+                />
+                <span className="share-option-text">Tag</span>
+              </div>
+
+              <div className="share-option">
+                <FontAwesomeIcon
+                  icon={faMapMarkedAlt}
+                  color="green"
+                  className="share-icon"
+                />
+                <span className="share-option-text">Location</span>
+              </div>
+              <div className="share-option">
+                <FontAwesomeIcon
+                  icon={faSmile}
+                  color="goldenrod"
+                  className="share-icon"
+                />
+                <span className="share-option-text">Feelings</span>
+              </div>
+            </span>
           </div>
           <button className="share-button" type="submit">
             Share

@@ -8,14 +8,14 @@
   top: 3.125rem;
 
   &-wrapper {
-    padding: 20px;
+    padding: $one-qt;
 
     .sidebar-list {
-      @include lists() .list-item {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1.25rem;
-        font-size: 1.25rem;
+      @include lists();
+      .list-item {
+        @extend %fa;
+        margin-bottom: $one-qt;
+        font-size: $one-qt;
 
         .item-icon {
           margin-right: 1rem;
@@ -25,13 +25,13 @@
     .sidebar-button {
       width: 9.375rem;
       border: none;
-      padding: 10px;
+      padding: $sp-10;
       border-radius: 0.313rem;
       font-weight: 500;
       cursor: pointer;
     }
     .sidebar-hr {
-      margin: 1.25rem 0;
+      margin: $one-qt 0;
     }
 
     .friend-list {
@@ -52,11 +52,11 @@
 }
 
 ::-webkit-scrollbar {
-    width: 0.313rem;
+  width: 0.313rem;
 }
 ::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
+  background-color: #f1f1f1;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: grey;
+  background-color: grey;
 }

@@ -33,9 +33,8 @@
         }
       }
       .profile-info {
-        display: flex;
+        @extend %fa;
         flex-direction: column;
-        align-items: center;
         justify-content: center;
 
         &-name {

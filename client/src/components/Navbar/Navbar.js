@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSearch,
@@ -12,7 +12,7 @@ import "./Navbar.scss";
 
 function Navbar() {
   const user = useContext(AuthContext);
-  const PF = process.env.REACT_APP_PUBLIC_FOLDER
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   return (
     <div className="container">
       <div className="navLeft">
@@ -32,10 +32,36 @@ function Navbar() {
       </div>
       <div className="navRight">
         <div className="navLinks">
-          <span className="navLink">Homepage</span>
-          <span className="navLink">Timeline</span>
+          <Link
+            to="/"
+            className="navLink"
+            style={{ color: "white", textDecoration: "none" }}
+          >
+            Timeline
+          </Link>
+          <Link
+            to={"/profile/" + user.user.username}
+            className="navLink"
+            style={{ color: "white", textDecoration: "none" }}
+          >
+            Homepage
+          </Link>
+          <Link
+            to={"/messenger"}
+            className="navLink"
+            style={{ color: "white", textDecoration: "none" }}
+          >
+            Messenger
+          </Link>
         </div>
-        <div className="navIcons">
+        <div
+          className="navIcons"
+          style={{
+            border: "1px solid red",
+            padding: "4px",
+            position: "relative",
+          }}
+        >
           <div className="navIcon">
             <FontAwesomeIcon icon={faUserAlt} />
             <span className="navIconBadge">1</span>
@@ -49,8 +75,17 @@ function Navbar() {
             <span className="navIconBadge">2</span>
           </div>
         </div>
+        <span style={{ position: "absolute", right: "7.5em" }}></span>
         <Link to={`/profile/${user.user.username}`}>
-          <img src={user.profilePicture ? PF + user.profilePicture : PF + "/person/default-photo.jpg"} alt="" className="navImg" />
+          <img
+            src={
+              user.profilePicture
+                ? PF + user.profilePicture
+                : PF + "/person/default-photo.jpg"
+            }
+            alt=""
+            className="navImg"
+          />
         </Link>
       </div>
     </div>

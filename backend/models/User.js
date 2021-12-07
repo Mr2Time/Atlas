@@ -38,6 +38,7 @@ const UserSchema = mongoose.Schema(
     },
     description: {
       type: String,
+      default: "",
       max: 50,
     },
     city: {

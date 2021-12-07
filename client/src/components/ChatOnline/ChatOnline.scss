@@ -1,31 +1,28 @@
 @import "../../App.scss";
 
 .chat-online-friend {
-    display: flex;
-    align-items: center;
-    font-weight: 500;
-    cursor: pointer;
-    margin-top: 0.625rem;
+  @extend %fa;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: $sp-10;
 
-    .online-img-container {
-        position: relative;
-        margin-right: 0.625rem;
+  .online-img-container {
+    position: relative;
+    margin-right: $sp-10;
 
-        .chat-online-img {
-            @include profileImage(32px, 32px);
-        }
-
-        .chat-online-badge {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            border: 1px solid white;
-            background-color: limegreen;
-            position: absolute;
-            top: 2px;
-            right: 2px;
-        
-        }
+    .chat-online-img {
+      @include profileImage(32px, 32px);
     }
 
+    .chat-online-badge {
+      width: $sp-10;
+      height: $sp-10;
+      border-radius: 50%;
+      border: 1px solid white;
+      background-color: limegreen;
+      position: absolute;
+      top: 2px;
+      right: 2px;
+    }
+  }
 }

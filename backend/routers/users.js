@@ -70,7 +70,7 @@ router.get("/friends/:userId", async (req, res) => {
       const { _id, username, profilePicture } = friend;
       friendList.push({ _id, username, profilePicture });
     });
-    res.status(200).json(friendList)
+    res.status(200).json(friendList);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -88,7 +88,7 @@ router.put("/:id/follow", async (req, res) => {
         await currentUser.updateOne({ $push: { following: req.params.id } });
         res.status(200).json("user has been followed");
       } else {
-        res.status(403).json("you allready follow this user");
+        res.status(403).json("you already follow this user");
       }
     } catch (err) {
       res.status(500).json(err);

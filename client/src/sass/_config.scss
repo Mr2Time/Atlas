@@ -1,6 +1,14 @@
 $flex-3: 3;
 $flex-4: 3.5;
 $flex-5: 5.5;
+$sp-10: 0.625rem;
+$one-qt: 1.25rem;
+$bl-bg: #1877f2;
+
+%fa {
+  display: flex;
+  align-items: center;
+}
 
 @mixin profileImage($width: 42px, $height: 42px) {
   width: $width;

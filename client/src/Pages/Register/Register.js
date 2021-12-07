@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./Register.scss";
 
 const Register = () => {
@@ -27,7 +27,6 @@ const Register = () => {
         console.log(error);
       }
     }
-    // console.log(username, email, password, passwordConfirmation)
   };
   return (
     <div className="login">
@@ -73,7 +72,9 @@ const Register = () => {
             <button class="login-button" type="submit">
               Sign Up
             </button>
+            <Link to='/login' className='login-link'>
             <button className="register-button">Login into Account</button>
+            </Link>
           </form>
         </div>
       </div>

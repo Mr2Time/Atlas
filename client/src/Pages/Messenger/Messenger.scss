@@ -1,7 +1,7 @@
 @import "../../App.scss";
 
 %wrappers {
-  padding: 0.625rem;
+  padding: $sp-10;
   height: 100%;
 }
 
@@ -17,7 +17,7 @@
 
       .menu-input {
         width: 90%;
-        padding: 0.625rem 0;
+        padding: $sp-10 0;
         border: none;
         border-bottom: 1px solid grey;
 
@@ -35,33 +35,41 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      position: relative;
 
       .chat-box-top {
-          height: 100%;
-          overflow-y: scroll;
-          padding-right: 0.625rem;
+        height: 100%;
+        overflow-y: scroll;
+        padding-right: $sp-10;
       }
 
       .chat-box-bottom {
         margin-top: 0.31rem;
-        display: flex;
-        align-items: center;
+        @extend %fa;
         justify-content: space-between;
 
         .chat-textarea {
-            width: 80%;
-            height: 5.625rem;
-            padding: 0.625rem;
+          width: 80%;
+          height: 5.625rem;
+          padding: $sp-10;
         }
         .chat-submit-btn {
-            width: 4.375rem;
-            height: 2.5rem;
-            border: none;
-            border-radius: 0.313rem;
-            background-color: teal;
-            color: white;
+          width: 4.375rem;
+          height: 2.5rem;
+          border: none;
+          border-radius: 0.313rem;
+          background-color: teal;
+          color: white;
         }
-    }
+      }
+      .no-convo-text {
+        position: absolute;
+        top: 10%;
+        font-size: 50px;
+        color: grey;
+        text-align: center;
+        cursor: default;
+      }
     }
   }
   .chat-online-friends {

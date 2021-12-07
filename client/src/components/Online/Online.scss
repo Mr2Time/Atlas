@@ -1,12 +1,11 @@
 @import "../../App.scss";
 
 .rightbar-friend {
-  display: flex;
-  align-items: center;
+  @extend %fa;
   margin-bottom: 1rem;
 
   .rightbar-profile-img-container {
-    margin: 0.625rem;
+    margin: $sp-10;
     position: relative;
     z-index: -1;
 

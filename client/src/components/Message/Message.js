@@ -1,6 +1,7 @@
+import {format} from 'timeago.js'
 import "./Message.scss";
 
-const Message = ({own}) => {
+const Message = ({message,own}) => {
   return (
     <div className={own ? "message own" : "message"}>
       <div className="message-top">
@@ -9,9 +10,9 @@ const Message = ({own}) => {
           src="https://t3.ftcdn.net/jpg/02/22/85/16/360_F_222851624_jfoMGbJxwRi5AWGdPgXKSABMnzCQo9RN.jpg"
           alt=""
         />
-        <p className="message-text">First Message!</p>
+        <p className="message-text">{message.text}</p>
       </div>
-      <div className="message-bottom">1 hour ago</div>
+      <div className="message-bottom">{format(message.createdAt)}</div>
     </div>
   );
 };

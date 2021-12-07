@@ -54,7 +54,10 @@ const Post = ({ post }) => {
             <span className="post-date">{format(user.createdAt)}</span>
           </div>
           <div className="top-right">
+            <span style={{border: '1px solid red', padding: '2px'}}>
+
             <FontAwesomeIcon icon={faEllipsisV} />
+            </span>
           </div>
         </div>
         <div className="post-center">
@@ -78,7 +81,7 @@ const Post = ({ post }) => {
             <span className="like-counter">{like} people liked it</span>
           </div>
           <div className="bottom-right">
-            <span className="post-comment-text">{post.comment} comments</span>
+            <span className="post-comment-text" style={{border: '1px solid red'}}>{post.comment} comments</span>
           </div>
         </div>
       </div>

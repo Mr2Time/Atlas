@@ -3,36 +3,35 @@
 .message {
   display: flex;
   flex-direction: column;
-  margin-top: 1.25rem;
+  margin-top: $one-qt;
 
   &-top {
     display: flex;
     .message-img {
       @include profileImage(32px, 32px);
-      margin-right: 0.625rem;
+      margin-right: $sp-10;
     }
-  
+
     .message-text {
-      padding: 0.625rem;
-      border-radius: 1.25rem;
-      background-color: #1877f2;
+      padding: $sp-10;
+      border-radius: $one-qt;
+      background-color: $bl-bg;
       color: white;
       max-width: 18.75rem;
     }
   }
 
   &-bottom {
-      font-size: 0.75rem;
-      margin-top: 0.625rem;
+    font-size: 0.75rem;
+    margin-top: $sp-10;
   }
 
   &.own {
     align-items: flex-end;
 
     .message-text {
-        background-color: rgb(245, 241, 241);
-        color: black;
+      background-color: rgb(245, 241, 241);
+      color: black;
     }
   }
-
 }

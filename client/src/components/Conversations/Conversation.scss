@@ -1,15 +1,14 @@
 @import "../../App.scss";
 
 .conversation {
-  display: flex;
-  align-items: center;
-  padding: 0.625rem;
+  @extend %fa;
+  padding: $sp-10;
   cursor: pointer;
-  margin-top: 1.2rem;
+  margin-top: $one-qt;
 
   .convo-img {
     @include profileImage();
-    margin-right: 1.25rem;
+    margin-right: $one-qt;
   }
 
   .convo-name {

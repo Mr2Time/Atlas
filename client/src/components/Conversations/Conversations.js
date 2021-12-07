@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Conversation.scss";
 
-const Conversation = ({ convo, currentUser }) => {
+const Conversation = ({ conversation, currentUser }) => {
   const [user, setUser] = useState(null);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
   useEffect(() => {
-    const friendId = convo.members.find((m) => m !== currentUser._id);
+    const friendId = conversation.members.find((m) => m !== currentUser._id);
 
     const getUser = async () => {
       try {
@@ -18,7 +18,7 @@ const Conversation = ({ convo, currentUser }) => {
       }
     };
     getUser();
-  }, [currentUser, convo]);
+  }, [currentUser, conversation]);
 
   return (
     <div className="conversation">

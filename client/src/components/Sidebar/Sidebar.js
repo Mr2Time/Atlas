@@ -18,7 +18,8 @@ import CloseFriends from "../CloseFriends/CloseFriends";
 const Sidebar = () => {
   return (
     <div className="sidebar">
-      <div className="sidebar-wrapper">
+
+      <div className="sidebar-wrapper" style={{border: '1px solid red'}}>
         <ul className="sidebar-list">
           <li className="list-item">
             <FontAwesomeIcon icon={faRss} className="item-icon" />

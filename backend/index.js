@@ -5,11 +5,11 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const multer = require("multer");
 const path = require("path");
-const auth = require("./Routers/auth");
-const posts = require("./Routers/posts");
-const users = require("./Routers/users");
-const convo = require("./Routers/Conversation");
-const message = require("./Routers/Message");
+const authRoute = require("./Routers/auth");
+const postsRoute = require("./Routers/posts");
+const usersRoute = require("./Routers/users");
+const convoRoute = require("./Routers/Conversation");
+const messageRoute = require("./Routers/Message");
 const app = express();
 
 dotenv.config();
@@ -46,12 +46,60 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
   }
 });
 
-app.use("/api/auth", auth);
-app.use("/api/users", users);
-app.use("/api/posts", posts);
-app.use("/api/conversations", convo);
-app.use("/api/messages/", message);
+app.use("/api/auth", authRoute);
+app.use("/api/users", usersRoute);
+app.use("/api/posts", postsRoute);
+app.use("/api/conversations", convoRoute);
+app.use("/api/messages/", messageRoute);
 
 app.listen(5000, () => {
   console.log("Backend server is running!");
+});
+
+const io = require("socket.io")(8900, {
+  cors: {
+    origin: "http://localhost:3000",
+  },
+});
+
+let users = [];
+
+const addUser = (userId, socketId) => {
+  !users.some((user) => user.userId === userId) &&
+    users.push({ userId, socketId });
+};
+
+const removeUser = (socketId) => {
+  users = users.filter((user) => user.socketId !== socketId);
+};
+
+const getUser = (userId) => {
+  return users.find((user) => user.userId === userId);
+};
+
+io.on("connection", (socket) => {
+  //when ceonnect
+  console.log("a user connected.");
+
+  //take userId and socketId from user
+  socket.on("addUser", (userId) => {
+    addUser(userId, socket.id);
+    io.emit("getUsers", users);
+  });
+
+  //send and get message
+  socket.on("sendMessage", ({ senderId, receiverId, text }) => {
+    const user = getUser(receiverId);
+    io.to(user.socketId).emit("getMessage", {
+      senderId,
+      text,
+    });
+  });
+
+  //when disconnect
+  socket.on("disconnect", () => {
+    console.log("a user disconnected!");
+    removeUser(socket.id);
+    io.emit("getUsers", users);
+  });
 });

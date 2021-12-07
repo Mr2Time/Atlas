@@ -10,7 +10,6 @@ import "./Rightbar.scss";
 const Rightbar = ({ user }) => {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const { user: currentUser, dispatch } = useContext(AuthContext);
-  console.log(currentUser);
   const [friends, setFriends] = useState([]);
   const [followed, setFollowed] = useState(
     currentUser.following.includes(user?._id)
@@ -58,7 +57,7 @@ const Rightbar = ({ user }) => {
           </span>
         </div>
         <img className="rightbar-ad" src={`${PF}/ad.png`} alt="" />
-        <h4 className="rightbar-title">Online Friends</h4>
+        <h4 className="rightbar-title" style={{borderBottom: '1px solid red'}}>Online Friends</h4>
         <ul className="rightbar-friends-list">
           {Users.map((user) => {
             return <Online key={user.id} user={user} />;
@@ -74,6 +73,7 @@ const Rightbar = ({ user }) => {
         {user.username !== currentUser.username && (
           <button className="follow-button" onClick={handleFollow}>
             {followed ? "Unfollow" : "Follow"}
+            <span>{" "}</span>
             <FontAwesomeIcon icon={followed ? faMinus : faPlus} />
           </button>
         )}
@@ -104,6 +104,7 @@ const Rightbar = ({ user }) => {
             <Link
               to={"/profile/" + friend.username}
               style={{ textDecoration: "none" }}
+              key={friend._id}
             >
               <div className="rightbar-following">
                 <img

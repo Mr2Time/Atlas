@@ -4,11 +4,10 @@
   flex: $flex-4;
 
   &-wrapper {
-    padding: 1.2rem 1.2rem 0 0;
+    padding: $one-qt $one-qt 0 0;
 
     .birthday-container {
-      display: flex;
-      align-items: center;
+      @extend %fa;
 
       .birthday-image {
         width: 2.5rem;
@@ -21,11 +20,11 @@
       }
     }
     .rightbar-title {
-      margin-bottom: 1.25rem;
+      margin-bottom: $one-qt;
     }
     .rightbar-ad {
       width: 100%;
-      border-radius: 0.625rem;
+      border-radius: $sp-10;
       margin: 1.875rem 0;
     }
     .rightbar-friends-list {
@@ -36,9 +35,9 @@
 
     .follow-button {
       margin-top: 1.875rem;
-      margin-bottom: 0.625rem;
+      margin-bottom: $sp-10;
       border: none;
-      padding: 0.6em 0.625rem;
+      padding: 0.6em $sp-10;
       color: white;
       border-radius: 0.313rem;
       background-color: #1872f2;
@@ -54,7 +53,7 @@
     .rightbar-title {
       font-size: 1.1rem;
       font-weight: 500;
-      margin-bottom: 0.625rem;
+      margin-bottom: $sp-10;
     }
 
     .rightbar-followings {
@@ -80,7 +79,7 @@
     .rightbar-info {
       margin-bottom: 1.875rem;
       .info-item {
-        margin-bottom: 0.625rem;
+        margin-bottom: $sp-10;
 
         .info-key {
           font-weight: 500;

@@ -1,11 +1,10 @@
 @import "../../App.scss";
 
 .login {
+  @extend %fa;
   width: 100vw;
   height: 100vh;
   background-color: #f0f2f5;
-  display: flex;
-  align-items: center;
   justify-content: center;
 
   &-wrapper {
@@ -24,7 +23,7 @@
         font-size: 3.125rem;
         font-weight: 800;
         color: #1775ee;
-        margin-bottom: 0.625rem;
+        margin-bottom: $sp-10;
       }
       .login-desc {
         font-size: 1.5rem;
@@ -32,34 +31,39 @@
     }
     .login-box {
       height: 25rem;
-      padding: 1.25rem;
+      padding: $one-qt;
       background-color: #fff;
-      border-radius: 0.625rem;
+      border-radius: $sp-10;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
 
       .login-input {
         height: 3.125rem;
-        border-radius: 0.625rem;
+        border-radius: $sp-10;
         border: 0.063rem solid grey;
         font-size: 1.125rem;
-        padding-left: 1.25rem;
+        padding-left: $one-qt;
 
         &:focus {
           outline: none;
         }
       }
 
-      .login-button {
-        height: 3.125rem;
-        border-radius: 0.625rem;
-        border: none;
-        background-color: #1775ee;
-        color: #fff;
-        font-size: 1.25rem;
-        font-weight: 500;
-        cursor: pointer;
+      .login-link {
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        .login-button {
+          height: 3.125rem;
+          border-radius: $sp-10;
+          border: none;
+          background-color: #1775ee;
+          color: #fff;
+          font-size: $one-qt;
+          font-weight: 500;
+          cursor: pointer;
+        }
       }
       .login-forgot {
         text-align: center;
@@ -69,11 +73,11 @@
         width: 60%;
         height: 3.125rem;
         align-self: center;
-        border-radius: 0.625rem;
+        border-radius: $sp-10;
         border: none;
         background-color: #42b72a;
         color: #fff;
-        font-size: 1.25rem;
+        font-size: $one-qt;
         font-weight: 500;
         cursor: pointer;
       }

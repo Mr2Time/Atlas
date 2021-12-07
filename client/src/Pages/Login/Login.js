@@ -1,8 +1,10 @@
 import React, { useRef, useContext } from "react";
 import { loginCall } from "../../Api";
+import { tempLogin } from "../../Api";
 import { AuthContext } from "./../../Context/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 import "./Login.scss";
 
 const Login = () => {
@@ -16,7 +18,11 @@ const Login = () => {
       dispatch
     );
   };
-  console.log(user);
+
+  const handleTempLogin = (e) => {
+    e.preventDefault();
+    loginCall({ email: "test@gmail.com", password: "123456" }, dispatch);
+  };
 
   return (
     <div className="login">
@@ -51,10 +57,16 @@ const Login = () => {
                 "Log In"
               )}
             </button>
-            <span className="login-forgot">Forgot Password?</span>
-            <button className="register-button">
-                Create An Account
+            <button className="temp-login-button" onClick={handleTempLogin}>
+              {isFetching ? (
+                <FontAwesomeIcon icon={faSpinner} spin />
+              ) : (
+                "Temporary Login"
+              )}
             </button>
+            <Link to="/register" className="register-link">
+              <button className="register-button">Create An Account</button>
+            </Link>
           </form>
         </div>
       </div>
