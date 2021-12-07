@@ -5,16 +5,23 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const multer = require("multer");
 const path = require("path");
-const cors = require('cors')
+const cors = require("cors");
+const socketio = require("socket.io")({
+  cors: {
+    origin: "http://localhost:3000",
+  },
+});
+const http = require("http");
+const app = express();
+const server = http.createServer(app);
 const authRoute = require("./Routers/auth");
 const postsRoute = require("./Routers/posts");
 const usersRoute = require("./Routers/users");
 const convoRoute = require("./Routers/Conversation");
 const messageRoute = require("./Routers/Message");
-const app = express();
 
 dotenv.config();
-
+const PORT = process.env.PORT || 5000;
 mongoose.connect(
   process.env.MONGO_URL,
   { useNewUrlParser: true, useUnifiedTopology: true },
@@ -22,11 +29,13 @@ mongoose.connect(
     console.log("Connected to MongoDB");
   }
 );
-app.use("/images", express.static(path.join(__dirname, "public/images")));
+
+const publicDirectoryPath = path.join(__dirname, "./public");
+app.use(express.static(publicDirectoryPath));
 
 //middleware
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 app.use(helmet());
 app.use(morgan("common"));
 
@@ -54,15 +63,10 @@ app.use("/api/posts", postsRoute);
 app.use("/api/conversations", convoRoute);
 app.use("/api/messages/", messageRoute);
 
-app.listen(5000, () => {
+server.listen(PORT || 8900, () => {
   console.log("Backend server is running!");
 });
 
-const io = require("socket.io")(8000, {
-  cors: {
-    origin: "http://localhost:3000",
-  },
-});
 
 let users = [];
 
@@ -79,19 +83,19 @@ const getUser = (userId) => {
   return users.find((user) => user.userId === userId);
 };
 
-io.on("connection", (socket) => {
+socketio.on("connection", (socket) => {
   //when ceonnect
 
   //take userId and socketId from user
   socket.on("addUser", (userId) => {
     addUser(userId, socket.id);
-    io.emit("getUsers", users);
+    socketio.emit("getUsers", users);
   });
 
   //send and get message
   socket.on("sendMessage", ({ senderId, receiverId, text }) => {
     const user = getUser(receiverId);
-    io.to(user.socketId).emit("getMessage", {
+    socketio.to(user.socketId).emit("getMessage", {
       senderId,
       text,
     });
@@ -100,6 +104,6 @@ io.on("connection", (socket) => {
   //when disconnect
   socket.on("disconnect", () => {
     removeUser(socket.id);
-    io.emit("getUsers", users);
+    socketio.emit("getUsers", users);
   });
 });
